@@ -32,8 +32,10 @@
             transition: 0.1s;
         }
 
-        .key_up {
+        .key_down {
             border: 2px solid yellow;
+            box-shadow: 0 0 3px yellow;
+            transform: scale(1, 1.01);
         }
     </style>
 </head>
@@ -46,7 +48,7 @@
         <div class="key" data-key="70">F</div>
         <div class="key" data-key="71">G</div>
 
-        <audio data-key="65" src="src/audio/Vox (Vibez).wav"></audio>
+        <audio data-key="65" src="src/audio/Vox.wav"></audio>
         <audio data-key="83" src="src/audio/808 (LowMafia).wav"></audio>
         <audio data-key="68" src="src/audio/Kick (BallDrop).wav"></audio>
         <audio data-key="70" src="src/audio/Openhihat 1.wav"></audio>
@@ -54,22 +56,22 @@
 
     </main>
     <script>
-        window.addEventListener('keydown', (e) => {
+        function playSound(e) {
             const keys = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-            console.log(e.keyCode);
             const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
             audio.currentTime = 0;
             audio.play();
-            keys.classList.add('key_up');
-            console.log(keys);
-        })
+            keys.classList.add('key_down');
+        };
 
-        // const keys = document.querySelectorAll(".key[data-key]");
-        // for(let i=0; i < keys.length;i++){
-        //     keys[i].addEventListener("click",function(e){
-        //         console.log(e.currentTarget.getAttribute("data-key"));
-        //     })
-        // }
+        function removeTrans(e) {
+            this.classList.remove("key_down");
+        }
+
+        const key = document.querySelectorAll(".key");
+        key.forEach(key => key.addEventListener("transitionend", removeTrans));
+
+        window.addEventListener('keydown', playSound);
     </script>
 </body>
 
