@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js-clock</title>
+    <style>
+        html{
+            background: url('https://cdn.pixabay.com/photo/2015/12/26/05/53/wood-1108307_960_720.jpg');
+            height: 100vh;
+            width:  100%;
+           
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    .clock{ 
+        width: 200px;
+        height: 200px;
+        border-radius: 150px; 
+        border:5px solid #282828;
+        position: relative;
+
+    }
+     .time{
+        background: #fff;
+        position: absolute;
+        top: 50%;
+        width: 40%;
+        height: 6px;
+        right: 50%;
+        transform-origin: 100%;
+        transform: rotate(90deg);
+        /* transition-timing-function: cubic-bezier(0.09, 2.69, 0.58, 1); */
+        transition: all 0.5;
+     }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="hour time"></div>
+        <div class="min time"></div>
+        <div class="sec time"></div>
+    </div>
+    <script>
+        function start(){
+            const hour = document.querySelector(".hour");
+            const min = document.querySelector(".min");
+            const sec = document.querySelector(".sec");
+
+            
+        function setDate(){
+            let date = new Date();
+            secs = date.getSeconds();
+            secHand = (secs/60)*360+90;
+            console.log(secs)
+            console.log(secs/60)
+            console.log(secHand)
+        }
+        setDate();
+        }
+        start();
+    </script>
+</body>
+</html>
