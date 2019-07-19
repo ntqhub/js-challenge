@@ -26,16 +26,18 @@
         .wrap{
             width: 500px;
             height: 350px;
-            background: rgb(200, 208, 151);
+            background: #282828;
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
         .img{
-
+            position: relative;
             background-size: auto;
             background-repeat: no-repeat;
             background-position: 50% 50%;
+            transition: 0.5s;
         }
     </style>
 </head>
@@ -43,11 +45,11 @@
     <div class="setting">
         <div class="setting_inner">
             <label for="spacing">Spacing</label>
-            <input type="range" name="spacing" id="spacing" value="0">
+            <input type="range" name="spacing" id="spacing" min="0" max="100" step="20" value="0">
         </div>
         <div class="setting_inner">
                 <label for="blue">Blur</label>
-                <input type="range" name="blue" id="spacing" value="0">
+                <input type="range" name="blue" id="blur" min="0" max="10" step="2" value="0">
         </div>        
         <div class="setting_inner">
             <label for="color">Color</label>
@@ -58,7 +60,35 @@
         <img class="img" height="300" width="450" src="https://cdn.pixabay.com/photo/2019/07/17/17/30/peschiera-del-garda-4344483_960_720.jpg"/>
     </div>
     <script>
-    
+        let spacing = document.getElementById("spacing");
+        let blur = document.getElementById("blur");
+        let color = document.getElementById("color");
+
+        let img = document.querySelector("img");
+        let wrap = document.querySelector(".wrap");
+
+        console.log(color.value);
+        wrap.style.background = `${color.value}`;
+        img.style.left = spacing.value + "px";
+        img.style.top = spacing.value + "px";
+
+        
+        spacing.addEventListener("change",(e)=>{
+            console.log(e.target.value);
+            img.style.left = e.target.value + "px";
+            img.style.top = e.target.value + "px";
+          
+        })
+        
+        color.addEventListener("mouseleave",(e)=>{
+              wrap.style.background = `${e.target.value}`;
+            console.log(e.target.value);
+        })
+
+
+        
+
+        
     </script>
 </body>
 </html>
