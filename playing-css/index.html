@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            height: inherit;
+            background: rgb(236, 236, 236);
+            display: flex;
+        
+            align-items: center;
+            justify-content: center;
+        }
+        .setting{
+            margin: 50px;
+            display: flex;
+        }
+        .setting_inner{
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+        }
+        .wrap{
+            width: 500px;
+            height: 350px;
+            background: rgb(200, 208, 151);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .img{
+
+            background-size: auto;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="setting">
+        <div class="setting_inner">
+            <label for="spacing">Spacing</label>
+            <input type="range" name="spacing" id="spacing" value="0">
+        </div>
+        <div class="setting_inner">
+                <label for="blue">Blur</label>
+                <input type="range" name="blue" id="spacing" value="0">
+        </div>        
+        <div class="setting_inner">
+            <label for="color">Color</label>
+            <input type="color" name="color" id="color" value="#263423">
+        </div>
+    </div>
+    <div class="wrap">
+        <img class="img" height="300" width="450" src="https://cdn.pixabay.com/photo/2019/07/17/17/30/peschiera-del-garda-4344483_960_720.jpg"/>
+    </div>
+    <script>
+    
+    </script>
+</body>
+</html>
