@@ -45,11 +45,11 @@
     <div class="setting">
         <div class="setting_inner">
             <label for="spacing">Spacing</label>
-            <input type="range" name="spacing" id="spacing" min="0" max="100" step="20" value="0">
+            <input type="range" name="spacing" id="spacing" min="0" max="100" step="20" value="100">
         </div>
         <div class="setting_inner">
-                <label for="blue">Blur</label>
-                <input type="range" name="blue" id="blur" min="0" max="10" step="2" value="0">
+            <label for="blur">Blur</label>
+            <input type="range" name="blur" id="blur" min="0" max="10" step="2" value="5">
         </div>        
         <div class="setting_inner">
             <label for="color">Color</label>
@@ -61,34 +61,32 @@
     </div>
     <script>
         let spacing = document.getElementById("spacing");
-        let blur = document.getElementById("blur");
+        let filters = document.getElementById("blur");
         let color = document.getElementById("color");
 
         let img = document.querySelector("img");
         let wrap = document.querySelector(".wrap");
 
-        console.log(color.value);
         wrap.style.background = `${color.value}`;
         img.style.left = spacing.value + "px";
         img.style.top = spacing.value + "px";
-
-        
+        img.style.filter = filters.value + "px";
+        img.style.filter = `blur` + `(${filters.value+ "px"})`;
+        console.log(filters.value);
         spacing.addEventListener("change",(e)=>{
-            console.log(e.target.value);
             img.style.left = e.target.value + "px";
             img.style.top = e.target.value + "px";
-          
-        })
+        });
+
+        filters.addEventListener("change",(e)=>{
+            console.log(e.target.value)
+            img.style.filter = `blur`+`(${e.target.value + "px"})`;
+        });
         
         color.addEventListener("mouseleave",(e)=>{
               wrap.style.background = `${e.target.value}`;
             console.log(e.target.value);
-        })
-
-
-        
-
-        
+        });
     </script>
 </body>
 </html>
