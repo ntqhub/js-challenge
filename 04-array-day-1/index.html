@@ -60,9 +60,15 @@
 
         // sort secondname
         const fltSecond = inventors.sort((a,b)=>{
-            console.table(b.second);
+        if(a.second > b.second){
+            return 1;
+        }
+        else{
+            return -1;
+        }
+        console.table(fltSecond);
         });
-        console.log(fltSecond);
+      
        
 
         </script>
