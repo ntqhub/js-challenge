@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>04-array-day-1</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+       
+        <script>
+        const inventors =[
+            {first:'Albert',second:"Eith",years:"1879",passed:"1995"},
+            {first:'Thomas',second:"Sheld",years:"1993",passed:"1325"},
+            {first:'Rob',second:"Wirer",years:"1994",passed:"1500"},
+            {first:'Alia',second:"Floya",years:"1433",passed:"1925"},
+        ];
+        // filter
+        const filter = inventors.filter(item=>+(item.passed) <= +"1500" );
+        console.table(filter);
+        // map
+        const name = inventors.map(item =>`${ item.first} ,${item.second}`)
+        console.log(name);
+        // sort
+        const brig = inventors.sort((a,b)=> {
+            if(a.years > b.years){
+                return 1;
+            }
+            else 
+            return -1;
+        })
+        console.log(brig);
+
+        //reduce
+        const live = inventors.reduce((total,inv)=>{
+            return (
+                total+(inv.years - inv.passed)
+            )
+        },0);
+        console.log(live);
+        
+        // sort the inventors by years lived
+        const lived = inventors.sort((lived,liv)=>{
+            const a = +lived.years - +lived.passed;
+            const b = +liv.years - +liv.passed;
+            return a > b ? -1 : 1;
+            // if(a > b){
+            //     return -1;
+            // }
+            // else{
+            //     return 1;
+            // }
+        })
+        console.table(lived);
+        </script>
+    </body>
+</html>
